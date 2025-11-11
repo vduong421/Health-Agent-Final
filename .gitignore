@@ -1,0 +1,16 @@
+# Python venv
+.venv/
+
+# Environment files
+.env
+*.env
+
+# Common junk
+__pycache__/
+*.pyc
+.DS_Store
+
+# # Background folder
+# stock/
+
+
