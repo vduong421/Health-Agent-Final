@@ -12,15 +12,27 @@ from dotenv import load_dotenv
 # ENV / Secrets
 # =========================
 load_dotenv()
-API_KEY = os.getenv("IBM_CLOUD_API_KEY")
-DEPLOYMENT_URL = os.getenv("WATSONX_AGENT_URL")  # Public .../ai_service?version=2021-05-01
+
+def get_secret(key: str, default=None):
+    v = os.getenv(key)
+    if v:
+        return v
+    try:
+        return st.secrets.get(key, default)
+    except Exception:
+        return default
+
+API_KEY = get_secret("IBM_CLOUD_API_KEY")
+DEPLOYMENT_URL = get_secret("WATSONX_AGENT_URL")  # Public .../ai_service?version=2021-05-01
 IAM_TOKEN_URL = "https://iam.cloud.ibm.com/identity/token"
 
 if not API_KEY or not DEPLOYMENT_URL:
-    raise SystemExit(
-        "Missing IBM_CLOUD_API_KEY or WATSONX_AGENT_URL in .env. "
-        "Put .env next to app.py with those two keys."
+    st.error(
+        "Missing IBM_CLOUD_API_KEY or WATSONX_AGENT_URL.\n\n"
+        "Locally: put them in a .env file next to app.py.\n"
+        "On Streamlit Cloud: add them in App → Settings → Secrets."
     )
+    st.stop()
 
 # =========================
 # Shared helpers: backgrounds

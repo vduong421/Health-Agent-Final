@@ -10,7 +10,9 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# # Background folder
-# stock/
+# Background/test folders and files
+\#code_structure.md
+/OLD_FILE/
+
 
 
