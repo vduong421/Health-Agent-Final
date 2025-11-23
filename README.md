@@ -1,3 +1,6 @@
+# Project DEMO link:
+https://vduong421-health-agent-final-app-cthqyz.streamlit.app/
+
 # SJSU Spartan Health Agent
 
 A minimal, production-style demo for embedding an **IBM watsonx.ai Agent** into a modern web app.
