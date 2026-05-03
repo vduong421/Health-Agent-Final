@@ -1,9 +1,9 @@
-# Project DEMO link:
+﻿# Project workbench link:
 https://vduong421-health-agent-final-app-cthqyz.streamlit.app/
 
 # SJSU Spartan Health Agent
 
-A minimal, production-style demo for embedding an **IBM watsonx.ai Agent** into a modern web app.
+A minimal, production-style application for embedding an **IBM watsonx.ai Agent** into a modern web app.
 
 This project is designed to be both **portfolio-ready** and **product-ready**:
 
@@ -32,7 +32,7 @@ The agent can generate:
 
 ---
 
-## What This Project Demonstrates
+## What This Project Shows
 
 - **Realistic UX flow**
   - `Home` page with hero text, CTA buttons, and background media.
@@ -53,10 +53,10 @@ The agent can generate:
 - **UI / Frontend**
   - Built with **Streamlit** for a lightweight Python-first UI.
   - Fullscreen **video or image backgrounds** driven by local assets:
-    - `./stock/base` → background for Home + About.
-    - `./stock` → background for Chat page.
+    - `./stock/base` â†’ background for Home + About.
+    - `./stock` â†’ background for Chat page.
   - Behavior:
-    - Prefer a short `mp4` (≤ 6 MB) as looping background.
+    - Prefer a short `mp4` (â‰¤ 6 MB) as looping background.
     - Fallback to png/jpg/jpeg.
     - Fallback gradient if no media is present.
   - Custom sidebar background color to visually separate profile settings.
@@ -142,7 +142,7 @@ Rules:
 
 - The app:
   - Looks for `*.mp4` in the folder.
-  - Uses the **first mp4 ≤ 6 MB** as a looping fullscreen background.
+  - Uses the **first mp4 â‰¤ 6 MB** as a looping fullscreen background.
   - Else uses the first png/jpg/jpeg.
   - Else falls back to a dark gradient.
 
@@ -171,7 +171,7 @@ Open `http://localhost:8501` in your browser.
      - Picks media and injects HTML/CSS that renders a fullscreen video/image behind Streamlit.
 
 3. **Chat pipeline**
-   - User input → `handle_message()`.
+   - User input â†’ `handle_message()`.
    - `handle_message()`:
      - Appends to `st.session_state.messages`.
      - Calls `call_agent()` for a response.
@@ -181,7 +181,7 @@ Open `http://localhost:8501` in your browser.
      - Uses `extract_text()` to convert different response formats into plain text.
 
 4. **Profile variables**
-   - Sidebar → `build_profile()` → `st.session_state["profile_vars"]`.
+   - Sidebar â†’ `build_profile()` â†’ `st.session_state["profile_vars"]`.
    - When enabled, profile is sent as `variables.profile` to the Agent.
 
 ---
@@ -207,3 +207,18 @@ When presenting this project:
 
 MIT License  
 Copyright (c) 2025 Van Duong
+
+## Project Workbench
+
+Launch the production-style desktop workbench with:
+
+```powershell
+launch-workbench.bat
+```
+
+What it adds:
+
+- Local-first AI copilot using `google/gemma-4-e4b` by default
+- Operator-focused workbench for reviewing real project inputs and outputs
+- System design, production-impact, and operational brief generation on demand
+- Grounded responses based on this project's README, sample files, and deterministic outputs

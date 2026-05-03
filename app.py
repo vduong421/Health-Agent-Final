@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import base64
 from pathlib import Path
@@ -30,7 +30,7 @@ if not API_KEY or not DEPLOYMENT_URL:
     st.error(
         "Missing IBM_CLOUD_API_KEY or WATSONX_AGENT_URL.\n\n"
         "Locally: put them in a .env file next to app.py.\n"
-        "On Streamlit Cloud: add them in App → Settings → Secrets."
+        "On Streamlit Cloud: add them in App â†’ Settings â†’ Secrets."
     )
     st.stop()
 
@@ -408,7 +408,7 @@ def call_agent(user_text: str, profile_vars: Dict[str, Any], send_profile: bool)
 # =========================
 st.set_page_config(
     page_title="SJSU Spartan Health Agent",
-    page_icon="💪",
+    page_icon="ðŸ’ª",
     layout="wide",
 )
 
@@ -434,10 +434,10 @@ def go(page: str):
 def render_nav_bar():
     cols = st.columns([1, 1, 6])
     with cols[0]:
-        if st.button("🏠 Home", use_container_width=True):
+        if st.button("ðŸ  Home", use_container_width=True):
             go("home")
     with cols[1]:
-        if st.button("ℹ️ Description", use_container_width=True):
+        if st.button("â„¹ï¸ Description", use_container_width=True):
             go("description")
 
 
@@ -449,7 +449,7 @@ def render_home():
         """
         <div style="margin-top:12vh;">
           <h1 style="color:#ffffff; font-weight:700; margin-bottom:0.2rem;">
-            SJSU Spartan Health Agent Demo
+            SJSU Spartan Health Agent Workbench
           </h1>
           <p style="color:#f5f5f5; max-width:720px; font-size:0.98rem;">
             This landing page shows how any commercial website can embed an IBM watsonx.ai powered
@@ -463,10 +463,10 @@ def render_home():
     st.write("")
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("💬 Chat with AI Agent", use_container_width=True, type="primary"):
+        if st.button("ðŸ’¬ Chat with AI Agent", use_container_width=True, type="primary"):
             go("chat")
     with col2:
-        if st.button("ℹ️ About this Project", use_container_width=True):
+        if st.button("â„¹ï¸ About this Project", use_container_width=True):
             go("description")
 
     st.write("")
@@ -492,7 +492,7 @@ def render_description():
           About the SJSU Spartan Health Agent
         </h2>
         <p style="color:#f5f5f5; font-size:0.95rem; max-width:900px;">
-          This demo showcases how an <b>IBM watsonx.ai</b>-powered agent can be embedded into any
+          This application showcases how an <b>IBM watsonx.ai</b>-powered agent can be embedded into any
           modern website as a smart assistant for health, fitness, or wellness services.
         </p>
         """,
@@ -511,7 +511,7 @@ def render_description():
               structured variables to the agent so responses can be tailored.</li>
           <li><b>Robust calling logic:</b> Multiple payload formats are tried automatically so the same UI can
               adapt to different watsonx.ai / Agent deployments without code changes.</li>
-          <li><b>Drop-in widget concept:</b> In a production website, the “Chat with AI Agent” button becomes a
+          <li><b>Drop-in widget concept:</b> In a production website, the â€œChat with AI Agentâ€ button becomes a
               floating chat bubble or sidebar assistant that supports customers 24/7.</li>
         </ul>
         """,
@@ -530,7 +530,7 @@ def render_description():
     )
 
     st.write("")
-    if st.button("👉 Jump into the live Agent Chat", type="primary"):
+    if st.button("ðŸ‘‰ Jump into the live Agent Chat", type="primary"):
         go("chat")
 
 
@@ -592,7 +592,7 @@ def render_chat():
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("_Thinking…_")
+            placeholder.markdown("_Thinkingâ€¦_")
             try:
                 reply = call_agent(
                     user_msg,
@@ -661,7 +661,7 @@ def render_chat():
         handle_message(queued)
 
     # Chat input
-    user_msg = st.chat_input("Ask for a plan, swaps, macros, or a grocery list…")
+    user_msg = st.chat_input("Ask for a plan, swaps, macros, or a grocery listâ€¦")
     if user_msg:
         handle_message(user_msg)
 
@@ -675,3 +675,4 @@ elif page == "description":
     render_description()
 else:
     render_chat()
+
